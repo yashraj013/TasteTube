@@ -113,13 +113,13 @@ async function registerFoodPartner (req, res) {
 async function loginFoodPartner (req, res) {
     const { email, password } = req.body;
 
-    // Check if user exists
-    const user = await foodPartnerModel.findOne({ email });
-    if (!user) {
+    // Find food partner account
+    const foodpartner = await foodPartnerModel.findOne({ email });
+    if (!foodpartner) {
         return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // Check password
+    // Verify password
     const isPasswordValid = await bcrypt.compare(password, foodpartner.password);
     if (!isPasswordValid) {
         return res.status(400).json({ message: "Invalid credentials" });
@@ -133,9 +133,9 @@ async function loginFoodPartner (req, res) {
     res.cookie("token", token);
 
     res.status(200).json({
-        message: "User logged in successfully",
+        message: "Food Partner logged in successfully",
         foodpartner: {
-            _id: foodPartner._id,
+            _id: foodpartner._id,
             email: foodpartner.email,
             fullName: foodpartner.fullName
         }
