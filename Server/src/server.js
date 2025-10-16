@@ -15,6 +15,10 @@ app.use(cors({
     credentials: true
 }));
 
+import router from "./routers/auth.routers.js";
+
+app.use('/api/auth', router)
+
 
 
 
