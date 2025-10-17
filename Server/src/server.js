@@ -15,10 +15,11 @@ app.use(cors({
     credentials: true
 }));
 
-import router from "./routers/auth.routers.js";
+import authroutes from "./routers/auth.routers.js";
+import foodroutes from "./routers/food.routers.js";
 
-app.use('/api/auth', router)
-
+app.use('/api/auth', authroutes)
+app.use('/api/food', foodroutes)
 
 
 
