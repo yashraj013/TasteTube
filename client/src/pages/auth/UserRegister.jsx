@@ -6,9 +6,7 @@ const UserRegister = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    password: '',
-    phone: '',
-    address: ''
+    password: ''
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -65,33 +63,6 @@ const UserRegister = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="phone" className="form-label">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className="form-input"
-              placeholder="Enter your phone number"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="address" className="form-label">Address</label>
-            <textarea
-              id="address"
-              name="address"
-              value={formData.address}
-              onChange={handleInputChange}
-              className="form-input"
-              placeholder="Enter your address"
-              rows="3"
-              required
-            />
-          </div>
 
           <div className="form-group">
             <label htmlFor="password" className="form-label">Password</label>
